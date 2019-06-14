@@ -7,7 +7,8 @@ class RingBuffer:
     def __increase_curent__(self):
         # increase current count
         self.current += 1
-        # if resulting current count is bigger than last index in storage list (capacity - 1 )
+        # if resulting current count is bigger than last index in storage list
+        # (capacity - 1 OR len(storage) - 1)
         # start at first index (capacity = 0)
         if self.current > self.capacity - 1:
             self.current = 0
