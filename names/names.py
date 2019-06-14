@@ -1,4 +1,6 @@
 import time
+from sort import merge_sort
+from search import binary_search
 
 start_time = time.time()
 
@@ -19,6 +21,7 @@ duplicates = []
 
 
 # Solution using dict/hash tables with runtime complexity of O(n)
+"""
 first_names = {}
 # save every name from first file in a dict
 for name_1 in names_1:
@@ -33,6 +36,20 @@ for name_2 in names_2:
     # if it doesnt exist, you get a KeyError and you continue
     except KeyError:
         pass
+
+"""
+
+# STRETCH USING ONLY ARRAYS AND SUB QUADRATIC TIME COMPLEXICITY
+
+# Solution using merge sort [O(n * log n)] to sort the array and then binary search
+names_1 = merge_sort(names_1)
+
+# Do binary search in sorted names_1 list for every element in names_2 list
+for name_2 in names_2:
+    arr = names_1
+    tar = name_2
+    if binary_search(arr, tar):
+        duplicates.append(name_2)
 
 
 end_time = time.time()
